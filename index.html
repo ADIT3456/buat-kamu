@@ -1,61 +1,186 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nyatakan Perasaan 💌</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      background: linear-gradient(135deg, #c9eaff 0%, #ffffff 100%);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      font-family: 'Poppins', sans-serif;
-      padding: 1rem;
-    }
-    .floating {
-      animation: float 3s ease-in-out infinite;
-    }
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0px); }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Kiya ❤️</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ffe4e1;
+            font-family: 'Quicksand', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Envelope Styles */
+        .envelope-wrapper {
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .envelope {
+            position: relative;
+            width: 280px;
+            height: 180px;
+            background: #ff85a2;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .envelope::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            z-index: 2;
+            border-left: 140px solid transparent;
+            border-right: 140px solid transparent;
+            border-top: 100px solid #ffb3c1;
+            transform-origin: top;
+            transition: transform 0.4s 0.2s;
+        }
+
+        .envelope.open::before {
+            transform: rotateX(180deg);
+            z-index: 0;
+        }
+
+        .heart-seal {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 40px;
+            color: #ff4d6d;
+            z-index: 3;
+            transition: 0.3s;
+        }
+
+        /* Letter Styles */
+        #main-content {
+            display: none;
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 90%;
+            width: 400px;
+            border: 3px dashed #ff85a2;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            color: #ff4d6d;
+            font-size: 2.5rem;
+        }
+
+        .btn-valentine {
+            background-color: #ff4d6d;
+            color: white;
+            border-radius: 25px;
+            padding: 10px 25px;
+            border: none;
+            transition: 0.3s;
+        }
+
+        .btn-valentine:hover {
+            background-color: #c9184a;
+            transform: scale(1.1);
+        }
+
+        .floating-heart {
+            position: absolute;
+            color: #ff85a2;
+            pointer-events: none;
+            animation: float 4s linear forwards;
+        }
+
+        @keyframes float {
+            to { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
 </head>
 <body>
-  <div class="text-center bg-white/80 backdrop-blur-md p-8 sm:p-10 rounded-3xl shadow-2xl w-full max-w-sm floating border border-blue-200">
-    <h1 class="text-2xl sm:text-3xl font-bold mb-4 text-blue-500">Hai Biruu  💙</h1>
-    <p class="text-gray-700 mb-6 text-base sm:text-lg">Aku cuma mau bilang... Aku suka kamu mau ga jadi pacarku </p>
 
-    <div class="flex justify-center gap-4 flex-wrap">
-      <button id="yesBtn" class="bg-blue-500 text-white px-5 sm:px-6 py-2 rounded-xl shadow-md hover:scale-105 transition-transform duration-300">Iya 💖</button>
-      <button id="noBtn" class="bg-blue-100 text-blue-600 px-5 sm:px-6 py-2 rounded-xl shadow-md">Tolak 🙈</button>
+    <div id="envelope-container" class="envelope-wrapper text-center">
+        <div class="envelope" id="envelope" onclick="openLetter()">
+            <div class="heart-seal">❤️</div>
+        </div>
+        <p class="mt-4 fw-bold text-muted">Klik untuk membuka pesan King Adit</p>
     </div>
 
-    <p id="response" class="text-base sm:text-lg mt-6 font-semibold text-blue-600 hidden"></p>
-  </div>
+    <div id="main-content">
+        <div id="step1">
+            <h1>Halo, Kiya! ❤️</h1>
+            <p class="mt-3">Aku punya sesuatu untukmu...</p>
+            <button class="btn btn-valentine mt-2" onclick="nextStep()">Apa itu?</button>
+        </div>
 
-  <script>
-    const yesBtn = document.getElementById('yesBtn');
-    const noBtn = document.getElementById('noBtn');
-    const response = document.getElementById('response');
+        <div id="step2" style="display: none;">
+            <h1>Will You Be My Valentine?</h1>
+            <p>Sejak ada kamu, duniaku jadi serba pink!</p>
+            <div class="d-flex justify-content-center gap-3 mt-4">
+                <button class="btn btn-valentine" onclick="finalStep()">MAU! ✨</button>
+                <button class="btn btn-outline-secondary rounded-pill" id="noBtn" onmouseover="moveNo()">Nggak</button>
+            </div>
+        </div>
 
-    yesBtn.addEventListener('click', () => {
-      response.textContent = 'Yeeey! Akhirnya kita pacaran 💙🥰';
-      response.classList.remove('hidden');
-    });
+        <div id="step3" style="display: none;">
+            <h1>Yay! I Love You, Kiya! 💖</h1>
+            <p>Sampai ketemu di hari Valentine nanti ya!</p>
+            <div style="font-size: 50px;">🥰🌹🍫</div>
+        </div>
+    </div>
 
-    noBtn.addEventListener('mouseover', () => {
-      const x = Math.random() * (window.innerWidth - noBtn.clientWidth);
-      const y = Math.random() * (window.innerHeight - noBtn.clientHeight);
-      noBtn.style.position = 'absolute';
-      noBtn.style.left = `${x}px`;
-      noBtn.style.top = `${y}px`;
-    });
-  </script>
+    <script>
+        function openLetter() {
+            const env = document.getElementById('envelope');
+            env.classList.add('open');
+            
+            setTimeout(() => {
+                document.getElementById('envelope-container').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+                createHearts();
+            }, 800);
+        }
+
+        function nextStep() {
+            document.getElementById('step1').style.display = 'none';
+            document.getElementById('step2').style.display = 'block';
+        }
+
+        function finalStep() {
+            document.getElementById('step2').style.display = 'none';
+            document.getElementById('step3').style.display = 'block';
+            setInterval(createHearts, 300);
+        }
+
+        function moveNo() {
+            const btn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+            btn.style.position = 'absolute';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        function createHearts() {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            heart.style.bottom = '-10%';
+            document.body.appendChild(heart);
+            
+            setTimeout(() => { heart.remove(); }, 4000);
+        }
+    </script>
 </body>
 </html>
