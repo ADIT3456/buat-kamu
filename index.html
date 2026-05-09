@@ -3,184 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untuk Kiya ❤️</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <title>HBD SAYANGKU KIEL! 🕸️❤️</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <style>
-        body {
-            background-color: #ffe4e1;
-            font-family: 'Quicksand', sans-serif;
-            overflow: hidden;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@400;700&display=swap');
+        .font-hero { font-family: 'Bangers', cursive; letter-spacing: 2px; }
+        body { font-family: 'Poppins', sans-serif; }
+        .web-pattern {
+            background-image: radial-gradient(#2d3748 1px, transparent 1px);
+            background-size: 30px 30px;
         }
-
-        /* Envelope Styles */
-        .envelope-wrapper {
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .envelope {
-            position: relative;
-            width: 280px;
-            height: 180px;
-            background: #ff85a2;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        }
-
-        .envelope::before {
-            content: "";
+        .heart-float {
             position: absolute;
-            top: 0;
-            z-index: 2;
-            border-left: 140px solid transparent;
-            border-right: 140px solid transparent;
-            border-top: 100px solid #ffb3c1;
-            transform-origin: top;
-            transition: transform 0.4s 0.2s;
+            animation: float 3s ease-in-out infinite;
         }
-
-        .envelope.open::before {
-            transform: rotateX(180deg);
-            z-index: 0;
-        }
-
-        .heart-seal {
-            position: absolute;
-            top: 40%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 40px;
-            color: #ff4d6d;
-            z-index: 3;
-            transition: 0.3s;
-        }
-
-        /* Letter Styles */
-        #main-content {
-            display: none;
-            text-align: center;
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            max-width: 90%;
-            width: 400px;
-            border: 3px dashed #ff85a2;
-        }
-
-        h1 {
-            font-family: 'Dancing Script', cursive;
-            color: #ff4d6d;
-            font-size: 2.5rem;
-        }
-
-        .btn-valentine {
-            background-color: #ff4d6d;
-            color: white;
-            border-radius: 25px;
-            padding: 10px 25px;
-            border: none;
-            transition: 0.3s;
-        }
-
-        .btn-valentine:hover {
-            background-color: #c9184a;
-            transform: scale(1.1);
-        }
-
-        .floating-heart {
-            position: absolute;
-            color: #ff85a2;
-            pointer-events: none;
-            animation: float 4s linear forwards;
-        }
-
         @keyframes float {
-            to { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
     </style>
 </head>
-<body>
+<body class="bg-slate-900 web-pattern overflow-x-hidden text-white">
 
-    <div id="envelope-container" class="envelope-wrapper text-center">
-        <div class="envelope" id="envelope" onclick="openLetter()">
-            <div class="heart-seal">❤️</div>
-        </div>
-        <p class="mt-4 fw-bold text-muted">Klik untuk membuka pesan King Adit</p>
-    </div>
-
-    <div id="main-content">
-        <div id="step1">
-            <h1>Halo, Kiya! ❤️</h1>
-            <p class="mt-3">Aku punya sesuatu untukmu...</p>
-            <button class="btn btn-valentine mt-2" onclick="nextStep()">Apa itu?</button>
+    <!-- Hero Section -->
+    <section class="min-h-screen flex flex-col items-center justify-center p-6 text-center">
+        <div class="animate__animated animate__heartBeat animate__infinite">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueW80Y2o4dHJ5Y2o4ZzRndHByeGdzMzh6Znd5eGdzMzh6Znd5eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/v9L6pY8CvpF56/giphy.gif" 
+                 alt="Spider-Man Dance" class="w-48 h-48 mx-auto drop-shadow-[0_0_20px_rgba(239,68,68,0.8)]">
         </div>
 
-        <div id="step2" style="display: none;">
-            <h1>Will You Be My Valentine?</h1>
-            <p>Sejak ada kamu, duniaku jadi serba pink!</p>
-            <div class="d-flex justify-content-center gap-3 mt-4">
-                <button class="btn btn-valentine" onclick="finalStep()">MAU! ✨</button>
-                <button class="btn btn-outline-secondary rounded-pill" id="noBtn" onmouseover="moveNo()">Nggak</button>
+        <h1 class="font-hero text-6xl md:text-8xl mt-6 text-red-600 drop-shadow-lg animate__animated animate__bounceIn">
+            HAPPY BIRTHDAY <br> <span class="text-blue-500">KIEL!</span>
+        </h1>
+
+        <p class="mt-4 text-xl font-bold bg-white text-red-600 px-6 py-2 rounded-full animate__animated animate__pulse animate__infinite">
+            SEMOGA MAKIN SUKSES TERUS SAYANG! 🚀
+        </p>
+    </section>
+
+    <!-- Content Card -->
+    <div class="max-w-md mx-auto bg-slate-800 border-4 border-red-600 rounded-3xl p-8 mb-20 shadow-[0_0_50px_rgba(239,68,68,0.3)] relative mx-4">
+        <div class="absolute -top-10 -right-5 w-20 h-20">
+            <img src="https://img.icons8.com/color/96/spiderman-head.png" alt="Spidey" class="animate-bounce">
+        </div>
+
+        <div class="text-center space-y-6">
+            <h2 class="font-hero text-3xl text-blue-400">MY FAVORITE SUPERHERO</h2>
+            
+            <div class="bg-slate-700 p-4 rounded-xl border-l-4 border-red-500 italic leading-relaxed text-sm">
+                "Spiderman boleh punya Peter Parker, tapi aku cuma mau punya Kiel. Makasih ya udah selalu jadi pahlawan di setiap hari-hariku. Selamat ulang tahun sayang, aku sayang banget sama kamu melebihi cintanya MJ ke Peter! 🕷️❤️"
             </div>
-        </div>
 
-        <div id="step3" style="display: none;">
-            <h1>Yay! I Love You, Kiya! 💖</h1>
-            <p>Sampai ketemu di hari Valentine nanti ya!</p>
-            <div style="font-size: 50px;">🥰🌹🍫</div>
+            <div class="grid grid-cols-2 gap-4 pt-4">
+                <div class="bg-red-600 p-3 rounded-lg font-hero text-xl transform -rotate-3">
+                    LOVE FOR ME: 3000%
+                </div>
+                <div class="bg-blue-600 p-3 rounded-lg font-hero text-xl transform rotate-3">
+                    MY EVERYTHING
+                </div>
+            </div>
+
+            <button onclick="alert('I Love You More, Kiel! 🕸️💖')" 
+                    class="w-full py-4 bg-red-600 hover:bg-red-700 font-hero text-2xl rounded-full transition-all active:scale-95 shadow-lg border-b-4 border-red-800">
+                SEND VIRTUAL HUG! 🫂
+            </button>
         </div>
     </div>
 
-    <script>
-        function openLetter() {
-            const env = document.getElementById('envelope');
-            env.classList.add('open');
-            
-            setTimeout(() => {
-                document.getElementById('envelope-container').style.display = 'none';
-                document.getElementById('main-content').style.display = 'block';
-                createHearts();
-            }, 800);
-        }
+    <!-- Footer Decor -->
+    <div class="fixed bottom-0 left-0 w-full flex justify-between px-4 pointer-events-none opacity-40">
+        <img src="https://img.icons8.com/color/96/spider-web.png" class="w-16 transform -scale-x-1">
+        <img src="https://img.icons8.com/color/96/love-heart.png" class="w-12 heart-float">
+        <img src="https://img.icons8.com/color/96/spider-web.png" class="w-16">
+    </div>
 
-        function nextStep() {
-            document.getElementById('step1').style.display = 'none';
-            document.getElementById('step2').style.display = 'block';
-        }
-
-        function finalStep() {
-            document.getElementById('step2').style.display = 'none';
-            document.getElementById('step3').style.display = 'block';
-            setInterval(createHearts, 300);
-        }
-
-        function moveNo() {
-            const btn = document.getElementById('noBtn');
-            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
-            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
-            btn.style.position = 'absolute';
-            btn.style.left = x + 'px';
-            btn.style.top = y + 'px';
-        }
-
-        function createHearts() {
-            const heart = document.createElement('div');
-            heart.classList.add('floating-heart');
-            heart.innerHTML = '❤️';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
-            heart.style.bottom = '-10%';
-            document.body.appendChild(heart);
-            
-            setTimeout(() => { heart.remove(); }, 4000);
-        }
-    </script>
 </body>
 </html>
